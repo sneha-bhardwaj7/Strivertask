@@ -1,0 +1,124 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700;800&family=Jost:wght@200;300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+
+/* ── CSS Variables (default: Classic White theme) ── */
+:root {
+  --bg-primary: #f8f5f0;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #555577;
+  --text-muted: #999aaa;
+  --border: #e0ddd8;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow-soft: rgba(24, 33, 67, 0.16);
+  --ring-wire: #8b8b8b;
+  --bg-orb: rgba(212, 229, 255, 0.65);
+  --bg-orb-soft: rgba(255, 226, 194, 0.55);
+  --glass: rgba(255, 255, 255, 0.66);
+  --glass-strong: rgba(255, 255, 255, 0.9);
+  --accent-ink: #244ca8;
+  --accent-warm: #e99b56;
+  --cell-grid: #ece7df;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg-primary);
+  transition: background 0.4s;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text-primary);
+  letter-spacing: 0.1px;
+}
+
+#root {
+  min-height: 100%;
+}
+
+/* ── Animations ── */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseBorder {
+  0%, 100% { opacity: 1;  transform: scale(1); }
+  50%       { opacity: .4; transform: scale(1.06); }
+}
+
+@keyframes flipIn {
+  from { transform: rotateX(-12deg) scale(.96); opacity: .5; }
+  to   { transform: rotateX(0) scale(1);       opacity: 1; }
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(10px, -8px) rotate(2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.app-shell > * {
+  animation: floatIn 0.4s ease both;
+}
+
+.app-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.14;
+  background-image:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--accent-ink) 26%, transparent) 0, transparent 16%),
+    radial-gradient(circle at 80% 8%, color-mix(in srgb, var(--accent-warm) 30%, transparent) 0, transparent 14%),
+    radial-gradient(circle at 82% 76%, color-mix(in srgb, var(--accent-ink) 16%, transparent) 0, transparent 18%);
+  animation: drift 11s ease-in-out infinite;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--border) 78%, var(--accent-ink));
+  border-radius: 99px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ── Textarea theme transition ── */
+textarea {
+  transition: background 0.4s, color 0.4s, border-color 0.4s;
+}
+
+textarea::placeholder {
+  color: color-mix(in srgb, var(--text-muted) 82%, transparent);
+}

@@ -1,11 +1,11 @@
 import { useCal } from "../context/CalContext";
 import { MONTH_DATA } from "../data/calendarData";
-import { useResponsive } from "../hooks/useResponsive";
-import WireRings from "./WireRings";
-import HeroImage from "./HeroImage";
-import CalHeader from "./CalHeader";
-import CalGrid from "./CalGrid";
-import NotesPanel from "./NotesPanel";
+import { useResponsive } from "../hooks/Useresponsive";
+import WireRings from "./Wirerings";
+import HeroImage from "./Heroimage";
+import CalHeader from "./Calheader";
+import CalGrid from "./Calgrid";
+import NotesPanel from "./Notespanel";
 
 export default function Calendar() {
   const { month, flipping, flipDir } = useCal();

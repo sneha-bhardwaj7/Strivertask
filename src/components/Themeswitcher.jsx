@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/Themecontext";
 
 export default function ThemeSwitcher() {
   const ctx = useTheme();

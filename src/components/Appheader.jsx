@@ -1,4 +1,4 @@
-import ThemeSwitcher from "./ThemeSwitcher";
+import ThemeSwitcher from "./Themeswitcher";
 
 export default function App() {
   return (

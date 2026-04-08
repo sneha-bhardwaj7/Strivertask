@@ -1,6 +1,6 @@
-import {ThemeProvider} from "./context/ThemeContext";
+import {ThemeProvider} from "./context/Themecontext";
 import { CalProvider } from "./context/CalContext";
-import AppHeader from "./components/AppHeader";
+import AppHeader from "./components/Appheader";
 import Calendar from "./components/Calendar";
 
 export default function App() {
